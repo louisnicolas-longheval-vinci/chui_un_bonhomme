@@ -2,9 +2,11 @@ class NodeUniform {
 
 	constructor( name, type, node, needsUpdate = undefined ) {
 
+		this.isNodeUniform = true;
+
 		this.name = name;
 		this.type = type;
-		this.node = node;
+		this.node = node.getSelf();
 		this.needsUpdate = needsUpdate;
 
 	}
@@ -21,8 +23,18 @@ class NodeUniform {
 
 	}
 
-}
+	get id() {
 
-NodeUniform.prototype.isNodeUniform = true;
+		return this.node.id;
+
+	}
+
+	get groupNode() {
+
+		return this.node.groupNode;
+
+	}
+
+}
 
 export default NodeUniform;
